@@ -89,11 +89,26 @@ public class TestCase {
 	}
 	@Test
 	public void verifyFirstPom() {
+		String msg = "State is required.";
 		Keyword keyword = new Keyword();
 		keyword.openBrowser();
 		keyword.OpenUrl(Locators.APPURL);
 		HomePage home  = PageFactory.initElements(keyword.driver, HomePage.class);
 		home.clickRegister();
+        home.sendName("ajit");
+        home.sendLastname(msg);
+        home.sendAddress("ajit");
+        home.sendCity("ajit");
+        home.sendstate("ajit");
+        home.sendZipcode("ajit");
+        home.sendPhonenumber("ajit");
+        home.sendSsnno("ajit");
+        home.sendUsername(msg);
+        home.sendPassword("ajit");
+        home.sendConfirmpass("ajit");
+        home.sendClick();
+       String ermsg = home.sendErrormsg();
+		Assert.assertEquals(msg, ermsg);
 
 	}
 	
